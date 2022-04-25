@@ -14,3 +14,8 @@ class WorkShop(models.Model):
     owner = get_user_model()
     add_time = models.DateTimeField(auto_created=True)
     edit_time = models.DateTimeField(auto_now=True)
+
+class Service(models.Model):
+    title = models.CharField(max_length=99)
+    categories = models.ManyToManyField('category.Category')
+    workshop = models.ForeignKey(WorkShop, on_delete=models.CASCADE)
