@@ -7,6 +7,8 @@ from django.contrib.auth import get_user_model
 class WorkShop(models.Model):
     name = models.CharField(max_length=99)
 
+    categories = models.ManyToManyField('category.Category')
+
     long = models.DecimalField(max_digits=9, decimal_places=6)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
 
